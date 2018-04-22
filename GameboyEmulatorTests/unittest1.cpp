@@ -12,10 +12,14 @@ namespace GameboyEmulatorTests
 	public:
 		GameboyMemory memory;
 
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(_06Test)
 		{
-			// TODO: Your test code here
+			GameboyCPU cpu(&memory);
+			memory.setValue(0x100, 0x06);
+			memory.setValue(0x101, 0x54);
+			cpu.cycle();
+			cpu.cycle();
+			Assert::AreEqual((unsigned char)0x54, (unsigned char)cpu.getRegisterB(), L"Incorrect value in Register B", LINE_INFO());
 		}
-
 	};
 }

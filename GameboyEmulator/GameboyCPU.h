@@ -1,5 +1,6 @@
 #pragma once
 #include "GameboyMemory.h"
+#include <stack>
 
 class GameboyCPU
 {
@@ -7,8 +8,13 @@ class GameboyCPU
 		GameboyCPU(GameboyMemory* memory);
 		~GameboyCPU();
 		void cycle();
+		unsigned char getRegisterB();
+		typedef void (GameboyCPU::*ScriptFunction)(unsigned char);
+		ScriptFunction opcodeFunction;
 	private:
 		GameboyMemory * pMemory;
+		std::stack<unsigned short> stack;	// Stack
+		bool pendingMoreBytes = false;
 		struct
 		{
 			unsigned char A;
@@ -22,8 +28,12 @@ class GameboyCPU
 			unsigned short SP;
 			unsigned short PC;
 		} registers;
+		void initialize();
+		void reset();
+		void clearRegisters();
+		void clearStack();
 		void executeOpcode(unsigned char opcode);
 		void incrementPC(int);
 		void _00();
-		void _06();
+		void _06(unsigned char);
 };

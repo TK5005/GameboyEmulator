@@ -1,7 +1,2 @@
-﻿  stdafx.cpp
-  GameboyCPU.cpp
-  GameboyMemory.cpp
-  unittest1.cpp
-  Generating Code...
-     Creating library C:\Users\kevin\source\repos\GameboyEmulator\Debug\GameboyEmulatorTests.lib and object C:\Users\kevin\source\repos\GameboyEmulator\Debug\GameboyEmulatorTests.exp
-  GameboyEmulatorTests.vcxproj -> C:\Users\kevin\source\repos\GameboyEmulator\Debug\GameboyEmulatorTests.dll
+﻿  unittest1.cpp
+  GameboyEmulatorTests.vcxproj -> C:\Users\kevin\Documents\GitHub\GameboyEmulator\Debug\GameboyEmulatorTests.dll
